@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: white; 
+            color: black; 
+            transition: background-color 1s, color 1s; 
+        }
+
+        .dark-mode {
+            background-color: black !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; font-weight: bold;">M을 누르세요</div>
+
+    <script>
+        let darkMode = false; // 다크 모드 설정
+
+        function toggleDarkMode() {
+            const content = document.getElementById('content');
+            const body = document.body;
+
+            // 다크 모드로 전환
+            if (!darkMode) {
+                body.classList.add('dark-mode'); // 다크 모드 클래스 추가
+                darkMode = true;
+            } 
+            // 화이트 모드로 전환
+            else {
+                body.classList.remove('dark-mode'); // 다크 모드 클래스 제거
+                darkMode = false;
+            }
+        }
+
+        // "M" 키 누를 때마다 다크 모드와 화이트 모드 전환
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'm' || event.key === 'M') {
+                toggleDarkMode();
+            }
+        });
+    </script>
+</body>
+</html>
